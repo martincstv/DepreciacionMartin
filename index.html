@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depreciación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h2 class="text-center text-primary">Depreciación</h2>
+                <form action="" class="p-3 mt-3 shadow border" id="frm1">
+                    <label for="activo">Activo:</label>
+                    <select class="form-control my-2" name="" id="activo">
+                        <option value="1">Equipo de Computación</option>
+                        <option value="2">Inmueble</option>
+                        <option value="3">Vehiculo</option>
+                    </select>
+                    <label for="precioCompra">Precio de Compra:</label>
+                    <!-- TODO : Controlar precio de compra -->
+                    <input type="text" class="form-control my-2" id="precioCompra"
+                        placeholder="Ingrese el precio de compra" required>
+                    <label for="fechaCompra">Fecha de Compra:</label>
+                    <input type="date" class="form-control my-2" id="fechaCompra" required>
+                    <label for="fechaDepreciacion">Fecha para Depreciación:</label>
+                    <input type="date" class="form-control my-2" id="fechaDepreciacion" required>
+                    <button class="btn btn-primary mt-2" type="submit">Calcular</button>
+                </form>
+                <hr>
+                <h4 class="text-center fw-light" id="valorResidual">Valor Residual: </h4>
+                <table class="container text-center text-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">V.Compra</th>
+                            <th scope="col">F.Compra</th>
+                            <th scope="col">T.Depreciación</th>
+                            <th scope="col">V.Depreciación</th>
+                            <th scope="col">V.Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
