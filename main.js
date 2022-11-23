@@ -1,30 +1,48 @@
+class Activos {
+    constructor(vidaUtilAnios) {
+        this.vidaUtilAnios = vidaUtilAnios;
+    }
+}
+
 const formulario = document.querySelector("#frm1");
 formulario.addEventListener("submit", depreciacion);
 
-/* let fechaCompra = document.querySelector("#fechaCompra").value;
-let fechaDepreciacion = document.querySelector("#fechaDepreciacion").value; */
+let activo = new Activos();
+let fila = Array();
 
 
 function depreciacion(params) {
     params.preventDefault();
     let activo = parseInt(document.querySelector("#activo").value);
+    ObtenerValoresActivoSeleccionado(activo);
     let precioCompra = parseFloat(document.querySelector("#precioCompra").value);
+    /* let fechaCompra = new Date(document.querySelector("#fechaCompra").value);
+    let anioFechaCompra = fechaCompra.getFullYear();
+    let mesFechaCompra = fechaCompra.getUTCMonth() + 1;
+    let fechaDepreciacion = document.querySelector("#fechaDepreciacion").value;
+    let anioFechaDepreciacion = fechaDepreciacion.getFullYear();
+    let mesFechaDepreciacion = fechaDepreciacion.getMonth() + 1; */
     let valorResidual = document.getElementById("valorResidual");
-    valorResidual.textContent += CalcularValorResidual(activo,precioCompra).toString();
+    valorResidual.textContent += CalcularValorResidual(precioCompra, activo);
 }
 
-function CalcularValorResidual(activo,precioCompra) {
-    let valorResidual = parseFloat(0);
-    switch (activo) {
+function ObtenerValoresActivoSeleccionado(activo_) {
+    let opcion = activo_;
+    switch (opcion) {
         case 1:
-            valorResidual = precioCompra / 3;
+            activo.vidaUtilAnios = 3;
             break;
         case 2:
-            valorResidual = precioCompra / 20;
+            activo.vidaUtilAnios = 20;
             break;
         case 3:
-            valorResidual = precioCompra / 5;
+            activo.vidaUtilAnios = 5;
             break;
     }
-    return valorResidual;
+}
+
+function CalcularValorResidual(precioCompra_, activo_) {
+    activo_ = activo.vidaUtilAnios;
+    let valorResidual = precioCompra_ / activo_;
+    return valorResidual.toFixed(2);
 }
