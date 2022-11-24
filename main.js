@@ -4,6 +4,17 @@ class Activos {
     }
 }
 
+class Depreciacion {
+    constructor(n, vCompra, fCompra, tDepreciacion, vDepreciacion, vActual) {
+        this.n = n;
+        this.vCompra = vCompra;
+        this.fCompra = fCompra;
+        this.tDepreciacion = tDepreciacion;
+        this.vDepreciacion = vDepreciacion;
+        this.vActual = vActual;
+    }
+}
+
 const formulario = document.querySelector("#frm1");
 formulario.addEventListener("submit", depreciacion);
 
@@ -19,7 +30,7 @@ function depreciacion(params) {
     /* let fechaCompra = new Date(document.querySelector("#fechaCompra").value);
     let anioFechaCompra = fechaCompra.getFullYear();
     let mesFechaCompra = fechaCompra.getUTCMonth() + 1;
-    let fechaDepreciacion = document.querySelector("#fechaDepreciacion").value;
+    let fechaDepreciacion = new Date(document.querySelector("#fechaDepreciacion").value);
     let anioFechaDepreciacion = fechaDepreciacion.getFullYear();
     let mesFechaDepreciacion = fechaDepreciacion.getMonth() + 1; */
     let valorResidual = document.getElementById("valorResidual");
