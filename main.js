@@ -108,3 +108,8 @@ function CalcularValorDepreciacion_X_Mes(precioCompra_, valorResidual_) {
     let valorDepreciacion = ((precioCompra_ - valorResidual_) / activo.vidaUtilAnios) / 12;
     return valorDepreciacion;
 }
+
+
+function recargar() {
+    window.location.reload();
+}
