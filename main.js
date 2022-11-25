@@ -71,6 +71,7 @@ function depreciacion(params) {
     }
 
     let salida = document.querySelector("table");
+    salida.createTBody;
     for (const iterator of fila) {
         var columna1 = Object.values(iterator)[0];
         var columna2 = Object.values(iterator)[1];
