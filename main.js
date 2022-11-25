@@ -40,28 +40,29 @@ function depreciacion(params) {
 
 
     let limite = anioFechaDepreciacion - anioFechaCompra;
-    let tDepreciacion = 12 - (mesFechaCompra - 1);
+    let tDepreciacion = 12 - mesFechaCompra;
+    let tAuxiliar = 12 - tDepreciacion;
     let valorDepreciacion_X_Mes = CalcularValorDepreciacion_X_Mes(precioCompra, valorResidual);
     let vActual;
     let vDepreciacion = tDepreciacion * valorDepreciacion_X_Mes;
-
+    
     if (anioFechaCompra != anioFechaDepreciacion) {
         for (let i = 0; i <= limite; i++) {
             let n = i + 1;
             let fCompra = anioFechaCompra + i;
-
+    
             if (i == 0) {
                 fila.push(new Depreciacion(n, precioCompra, fCompra, tDepreciacion, vDepreciacion, vActual = precioCompra - vDepreciacion));
             }
             tDepreciacion = 12;
             vDepreciacion = tDepreciacion * valorDepreciacion_X_Mes;
             if ((i > 0) && (i < limite)) {
-                fila.push(new Depreciacion(n, precioCompra, fCompra, tDepreciacion, vDepreciacion, ((vActual -= vDepreciacion) > valorResidual) ? vActual : valorResidual));
+                fila.push(new Depreciacion(n, precioCompra, fCompra, tDepreciacion, vDepreciacion, ((vActual -= vDepreciacion) > valorResidual) ? vActual.toFixed(2) : valorResidual));
             }
-            tDepreciacion = mesFechaDepreciacion;
+            tDepreciacion = tAuxiliar;
             vDepreciacion = tDepreciacion * valorDepreciacion_X_Mes;
             if (i == limite) {
-                fila.push(new Depreciacion(n, precioCompra, fCompra, tDepreciacion, vDepreciacion, ((vActual -= vDepreciacion) > valorResidual) ? vActual : valorResidual));
+                fila.push(new Depreciacion(n, precioCompra, fCompra, tDepreciacion, vDepreciacion, ((vActual -= vDepreciacion) > valorResidual) ? vActual.toFixed(2) : valorResidual));
             }
         }
     } else {
